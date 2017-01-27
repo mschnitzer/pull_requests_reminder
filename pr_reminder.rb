@@ -114,12 +114,12 @@ end
 
 # Represents a PullRequest in GitHub
 class PullRequest < OpenStruct
-  def updated
-    @updated ||= Time.parse(updated_at)
+  def created
+    @created ||= Time.parse(created_at)
   end
 
   def pending_days
-    ((Time.now - updated) / 24 / 3600).floor
+    ((Time.now - created) / 24 / 3600).floor
   end
 end
 
